@@ -14,7 +14,7 @@ The code has been developed and tested on Ubuntu 20.04 with ROS noetic.
 2) Clone and build via `catkin`
 ```bash
   cd <ROS_WORKSPACE>/src
-  git clone git@github.com:ctu-mrs/cat-ora.git
+  git clone git@github.com:ctu-mrs/catora.git
   catkin build
 ```
 
@@ -86,11 +86,11 @@ rosservice call /mrs_formation_reshaping/reset_visualization
 ## How to cite
 If you use this code in an academic context, please cite the following publication:
 
-V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," 2024. ([PDF](https://todo.pdf))
+V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," 2024. ([PDF](https://mrs.fel.cvut.cz/data/papers/cat-ora.pdf))
 
 ```
 @ARTICLE{kratky2024catora,
-  TODO: add bibtex
+  bibtex will be added once the paper appear on arxiv
 }
 ```
 
