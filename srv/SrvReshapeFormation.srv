@@ -1,0 +1,4 @@
+geometry_msgs/Point[] goal_configurations
+---
+bool success
+string message

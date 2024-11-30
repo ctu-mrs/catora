@@ -1,0 +1,7 @@
+geometry_msgs/Point[] initial_configurations
+geometry_msgs/Point[] goal_configurations
+bool publish_visualization
+---
+int32[] mapping
+bool success
+string message

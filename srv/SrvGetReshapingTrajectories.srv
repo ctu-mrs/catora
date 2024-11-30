@@ -1,0 +1,10 @@
+geometry_msgs/Point[] initial_configurations
+geometry_msgs/Point[] goal_configurations
+float32 trajectory_dt
+float32 max_velocity
+float32 max_acceleration
+bool publish_visualization
+---
+mrs_formation_reshaping/TrajectoryMsg[] trajectories
+bool success
+string message

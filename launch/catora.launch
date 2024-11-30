@@ -1,0 +1,46 @@
+<launch>
+
+  <arg name="uav_name" default="uav1" />
+  <arg name="map_frame" default="$(arg uav_name)/gps_origin" />
+
+  <arg name="nodelet" default="standalone" />
+  <arg name="nodelet_manager" default="" />
+  <arg name="launch_prefix" default=""/>
+  <arg name="rviz" default="true"/>
+
+  <arg name="run_test" default="false"/>
+  <arg name="load_configurations" default="false"/>
+
+  <node pkg="nodelet" type="nodelet" name="mrs_formation_reshaping" args="$(arg nodelet) mrs_formation_reshaping/FormationReshapingNodelet $(arg nodelet_manager)" output="screen" launch-prefix="$(arg launch_prefix)" >
+
+    <rosparam file="$(find mrs_formation_reshaping)/config/config.yaml" />
+
+    <!-- Parameters -->
+    <param name="uav_name" type="string" value="$(arg uav_name)" />
+    <param name="global_frame" type="string" value="$(arg map_frame)" />
+
+    <param name="formation_folder" type="string" value="$(find mrs_formation_reshaping)/formations/" />
+    <param name="trajectories_out_folder" type="string" value="$(find mrs_formation_reshaping)/trajectories/" />
+    <param name="run_catora_vs_lsap_test" type="bool" value="$(arg run_test)" />
+    <param name="generate_trajectories_for_loaded_configurations" type="bool" value="$(arg load_configurations)" />
+
+    <!-- Publishers -->
+    <remap from="~visualize_robots" to="~visualization/robots" />
+    <remap from="~visualize_catora" to="~visualization/catora_assignment" />
+    <remap from="~visualize_lsap" to="~visualization/lsap_assignment" />
+    <remap from="~visualize_ref_trajectories" to="~visualization/ref_trajectories" />
+
+    <!-- services -->
+    <remap from="~run_visualization" to="~run_visualization" />
+    <remap from="~reset_trajectories" to="~reset_trajectories" />
+    <remap from="~reset_formation" to="~reset_formation" />
+    <remap from="~reshape_formation" to="~reshape_formation" />
+    <remap from="~get_assignment" to="~get_assignment" />
+
+  </node>
+
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mrs_formation_reshaping)/config/test.rviz" />
+  </group>
+
+</launch>

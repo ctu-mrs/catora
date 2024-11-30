@@ -1,0 +1,26 @@
+constraints:
+    max_vel: 8.0 # [m/s]
+    max_acc: 2.0 # [m/s2]
+  
+time_step: 0.20 # [s]
+
+visualization:
+  real_time_factor: 1
+
+testing:
+  number_of_robots:
+    min: 10
+    max: 200
+
+  area: 
+    horizontal_dimension: 20 # [m]
+    vertical_dimension: 10 # [m]
+
+# The folders are specified in launch file as relative paths to the package.
+# Uncommenting following lines will override the paths specified in launch files.
+# formation_folder: "/home/xxx/catora/formations"
+# trajectories_out_folder: "/home/xxx/catora/trajectories/awesome_show"
+
+formation_files: ["letter_c_200.txt", "letter_t_200.txt", "letter_u_200.txt"]
+save_trajectories_to_file: false
+trajectories_out_file: "trajectory.txt" # results in trajectory_xx.txt

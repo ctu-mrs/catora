@@ -1,0 +1,9 @@
+<library path="lib/libFormationReshapingNodelet">
+
+  <class name="mrs_formation_reshaping/FormationReshapingNodelet" type="mrs_formation_reshaping::FormationReshapingNodelet" base_class_type="nodelet::Nodelet">
+    <description>
+        Nodelet providing formation shape adaptation services. 
+    </description>
+  </class>
+
+</library>

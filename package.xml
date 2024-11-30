@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mrs_formation_reshaping</name>
+  <version>0.0.0</version>
+  <description>ROS package integrating CAT-ORA formation shape adaptation algorithm.</description>
+
+  <maintainer email="kratkvit@fel.cvut.cz">Vit Kratky</maintainer>
+  <author email="kratkvit@fel.cvut.cz">Vit Kratky</author>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rosconsole</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>nodelet</depend>
+  <depend>mrs_lib</depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>message_runtime</build_export_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+    <nodelet plugin="${prefix}/plugins.xml" />
+  </export>
+</package>
