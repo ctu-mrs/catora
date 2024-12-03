@@ -1,5 +1,5 @@
 # CAT-ORA: Collision Aware Time-Optimal formation Reshaping Algorithm 
-This repository contains the code for **Collision Aware Time-Optimal formation Reshaping Algorithm** presented in our [paper](https://mrs.fel.cvut.cz/data/papers/cat-ora.pdf).
+This repository contains the code for **Collision Aware Time-Optimal formation Reshaping Algorithm** presented in our [paper](https://arxiv.org/pdf/2412.00603).
 [![plot](./figs/catora_title_page.jpg)](https://youtu.be/FOCyGhxazMI?si=vV189B7v2TZ2ctoO)
 
 ## Code & How to
@@ -86,11 +86,17 @@ rosservice call /mrs_formation_reshaping/reset_visualization
 ## How to cite
 If you use this code in an academic context, please cite the following publication:
 
-V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," 2024. ([PDF](https://mrs.fel.cvut.cz/data/papers/cat-ora.pdf))
+V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," 2024, arXiv:2412.00603 [cs.RO]. ([PDF](https://arxiv.org/pdf/2412.00603))
 
 ```
-@ARTICLE{kratky2024catora,
-  bibtex will be added once the paper appear on arxiv
+@misc{kratky2024catora,
+      title={CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments}, 
+      author={Vit Kratky and Robert Penicka and Jiri Horyna and Petr Stibinger and Tomas Baca and Matej Petrlik and Petr Stepan and Martin Saska},
+      year={2024},
+      eprint={2412.00603},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2412.00603}, 
 }
 ```
 
