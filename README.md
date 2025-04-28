@@ -86,17 +86,18 @@ rosservice call /mrs_formation_reshaping/reset_visualization
 ## How to cite
 If you use this code in an academic context, please cite the following publication:
 
-V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," 2024, arXiv:2412.00603 [cs.RO]. ([PDF](https://arxiv.org/pdf/2412.00603))
+V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, and M. Saska, "CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments," in IEEE Transactions on Robotics, doi: 10.1109/TRO.2025.3547296. ([PDF](https://arxiv.org/pdf/2412.00603))
 
 ```
-@misc{kratky2024catora,
-      title={CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments}, 
-      author={Vit Kratky and Robert Penicka and Jiri Horyna and Petr Stibinger and Tomas Baca and Matej Petrlik and Petr Stepan and Martin Saska},
-      year={2024},
-      eprint={2412.00603},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2412.00603}, 
+@ARTICLE{kratky2025catora,
+  author={Kratky, Vit and Penicka, Robert and Horyna, Jiri and Stibinger, Petr and Baca, Tomas and Petrlik, Matej and Stepan, Petr and Saska, Martin},
+  journal={IEEE Transactions on Robotics}, 
+  title={CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-20},
+  doi={10.1109/TRO.2025.3547296}
 }
 ```
 
