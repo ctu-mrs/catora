@@ -176,17 +176,18 @@ std::pair<std::vector<std::vector<Eigen::Vector3d>>, double> FormationReshaper::
 
   double time_to_max_v = max_vel_ / max_acc_;
   double dist_to_max_v = 0.5 * max_vel_ * time_to_max_v;
+  double max_vel_applied = max_vel_;
   if (dist_to_max_v > dist_max / 2.0) {
     time_to_max_v = sqrt(dist_max / max_acc_);
-    max_vel_      = time_to_max_v * max_acc_;
+    max_vel_applied = time_to_max_v * max_acc_;
     dist_to_max_v = dist_max / 2.0;
   }
-  double time_total = 2 * time_to_max_v + (dist_max - 2 * dist_to_max_v) / max_vel_;
+  double time_total = max_vel_applied > 1e-3 ? 2 * time_to_max_v + (dist_max - 2 * dist_to_max_v) / max_vel_applied : 0.0;
 
   trajectories.resize(starts.size());
   for (size_t k = 0; k < starts.size(); k++) {
     trajectories[f_mapping[k].first] =
-        getMinimumTimeTrajectory(starts[f_mapping[k].first], goals[f_mapping[k].second], time_total, trajectory_dt_, max_acc_, max_vel_, dist_max);
+        getMinimumTimeTrajectory(starts[f_mapping[k].first], goals[f_mapping[k].second], time_total, trajectory_dt_, max_acc_, max_vel_applied, dist_max);
   }
 
   return std::make_pair(trajectories, time_total);
@@ -198,23 +199,30 @@ std::vector<Eigen::Vector3d> FormationReshaper::getMinimumTimeTrajectory(Eigen::
                                                                          double vm, double dm) {
 
   std::vector<Eigen::Vector3d> trajectory;
-  double                       t_acc   = vm / am;
-  int                          n_steps = ceil(time_total / ts);
+  
+  if (time_total < 1e-3) { // handles case when the start and goal coincides
+    trajectory.push_back(start);
+  } else { 
 
-  for (int k = 0; k <= n_steps; k++) {
+    double                       t_acc   = am < 1e-3 ? 0 : vm / am;
+    int                          n_steps = ceil(time_total / ts);
 
-    double s = std::min(k * ts / time_total, 1.0);
-    double coeff;
-    if (s <= t_acc / time_total) {
-      coeff = am * pow(time_total, 2) * pow(s, 2) / (2 * dm);
-    } else if (s <= (time_total - t_acc) / time_total) {
-      coeff = vm * time_total * s / dm - pow(vm, 2) / (2 * am * dm);
-    } else {
-      coeff = am * pow(time_total, 2) * (2 * s - pow(s, 2)) / (2 * dm) - (pow(vm, 4) + pow(am, 2) * pow(dm, 2)) / (2 * am * dm * pow(vm, 2));
+    for (int k = 0; k <= n_steps; k++) {
+
+      double s = std::min(k * ts / time_total, 1.0);
+      double coeff;
+      if (s <= t_acc / time_total) {
+        coeff = am * pow(time_total, 2) * pow(s, 2) / (2 * dm);
+      } else if (s <= (time_total - t_acc) / time_total) {
+        coeff = vm * time_total * s / dm - pow(vm, 2) / (2 * am * dm);
+      } else {
+        coeff = am * pow(time_total, 2) * (2 * s - pow(s, 2)) / (2 * dm) - (pow(vm, 4) + pow(am, 2) * pow(dm, 2)) / (2 * am * dm * pow(vm, 2));
+      }
+
+      Eigen::Vector3d point = start + coeff * (goal - start);
+      trajectory.push_back(point);
     }
 
-    Eigen::Vector3d point = start + coeff * (goal - start);
-    trajectory.push_back(point);
   }
 
   return trajectory;

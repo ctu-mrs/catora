@@ -577,7 +577,7 @@ bool FormationReshapingNodelet::callbackGetReshapingTrajectories(mrs_formation_r
   }
 
   if (req.max_acceleration < 1e-3 || req.max_velocity < 1e-3 || req.trajectory_dt < 1e-3) {
-    ROS_WARN("[FormationReshapingNodelet]: The allowed maximum acceleration, maximum velocity or traejctory dt is too small. Cannot process request.");
+    ROS_WARN("[FormationReshapingNodelet]: The allowed maximum acceleration, maximum velocity or trajectory dt is too small. Cannot process request.");
     res.message = "the provided constraints are not valid";
     return true;
   }
