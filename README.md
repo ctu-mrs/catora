@@ -92,11 +92,11 @@ V. Kratky, R. Penicka, J. Horyna, P. Stibinger, M. Petrlik, T. Baca, P. Stepan, 
 @ARTICLE{kratky2025catora,
   author={Kratky, Vit and Penicka, Robert and Horyna, Jiri and Stibinger, Petr and Baca, Tomas and Petrlik, Matej and Stepan, Petr and Saska, Martin},
   journal={IEEE Transactions on Robotics}, 
-  title={CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3D Environments}, 
+  title={CAT-ORA: Collision-Aware Time-Optimal Formation Reshaping for Efficient Robot Coordination in 3-D Environments}, 
   year={2025},
-  volume={},
+  volume={41},
   number={},
-  pages={1-20},
+  pages={2950-2969},
   doi={10.1109/TRO.2025.3547296}
 }
 ```
